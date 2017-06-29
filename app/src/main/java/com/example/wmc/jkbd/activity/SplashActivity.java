@@ -1,10 +1,13 @@
-package com.example.wmc.jkbd;
+package com.example.wmc.jkbd.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.wmc.jkbd.R;
+
 /**
  * Created by wmc on 2017/6/28.
  */
