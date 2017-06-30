@@ -20,21 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void test(View view) {
-        OkHttpUtils<Examination> utils=new OkHttpUtils<>(getApplicationContext());
-        String url="http://101.251.196.90:8080/JztkServer/examInfo";
-        utils.url(url)
-                .targetClass(Examination.class)
-                .execute(new OkHttpUtils.OnCompleteListener<Examination>() {
-                    @Override
-                    public void onSuccess(Examination result) {
-                        Log.e("main","result="+result);
-                    }
 
-                    @Override
-                    public void onError(String error) {
-                        Log.e("main","error="+error);
-                    }
-                });
         startActivity(new Intent(MainActivity.this,ExamActivity.class));
     }
 
