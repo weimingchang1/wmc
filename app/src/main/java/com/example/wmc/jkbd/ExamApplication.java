@@ -30,8 +30,8 @@ public class ExamApplication extends Application{
 
     private void initData() {
         OkHttpUtils<Examination> utils=new OkHttpUtils<>(instance);
-        String url="http://101.251.196.90:8080/JztkServer/examInfo";
-        utils.url(url)
+        String uri="http://101.251.196.90:8080/JztkServer/examInfo";
+        utils.url(uri)
                 .targetClass(Examination.class)
                 .execute(new OkHttpUtils.OnCompleteListener<Examination>() {
                     @Override
