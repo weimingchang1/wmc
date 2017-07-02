@@ -8,6 +8,8 @@ import java.util.List;
 import com.example.wmc.jkbd.bean.Examination;
 import com.example.wmc.jkbd.bean.Question;
 import com.example.wmc.jkbd.bean.resource;
+import com.example.wmc.jkbd.biz.ExamBiz;
+import com.example.wmc.jkbd.biz.IExamBiz;
 import com.example.wmc.jkbd.utils.OkHttpUtils;
 import com.example.wmc.jkbd.utils.ResultUtils;
 
@@ -19,11 +21,12 @@ public class ExamApplication extends Application{
     Examination mExamInfo;
     List<Question> mExamList;
     private static ExamApplication instance;
+    IExamBiz biz;
     @Override
     public void onCreate() {
         super.onCreate();
         instance=this;
-
+        biz=new ExamBiz();
         initData();
     }
     public static ExamApplication getInstance(){
@@ -34,44 +37,7 @@ public class ExamApplication extends Application{
         new Thread(new Runnable() {
             @Override
             public void run() {
-                OkHttpUtils<Examination> utils=new OkHttpUtils<>(instance);
-                String uri="http://101.251.196.90:8080/JztkServer/examInfo";
-                utils.url(uri)
-                        .targetClass(Examination.class)
-                        .execute(new OkHttpUtils.OnCompleteListener<Examination>() {
-                            @Override
-                            public void onSuccess(Examination result) {
-                                Log.e("main","result="+result);
-                                mExamInfo=result;
-                            }
-
-                            @Override
-                            public void onError(String error) {
-                                Log.e("main","error="+error);
-                            }
-                        });
-                OkHttpUtils<String> utils1=new OkHttpUtils<String>(instance);
-                String url2="http://101.251.196.90:8080/JztkServer/getQuestions?testType=rand";
-                utils1.url(url2)
-                        .targetClass(String.class)
-                        .execute(new OkHttpUtils.OnCompleteListener<String>() {
-                            @Override
-                            public void onSuccess(String jsonStr) {
-                                resource result = ResultUtils.getListResultFromJson(jsonStr);
-                                if (result!=null && result.getError_code()==0){
-                                    List<Question> list = result.getResult();
-                                    if(list!=null && list.size()>0){
-                                        mExamList=list;
-                                    }
-                                }
-
-                            }
-
-                            @Override
-                            public void onError(String error) {
-                                Log.e("main", "error="+error );
-                            }
-                        });
+                biz.beginExam();
             }
         }).start();
 
