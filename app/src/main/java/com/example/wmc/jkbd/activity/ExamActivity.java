@@ -100,10 +100,8 @@ public class ExamActivity extends AppCompatActivity {
                 if(examInfo!=null){
                     showData(examInfo);
                 }
-                List<Question> examList = ExamApplication.getInstance().getmExamList();
-                if (examList!=null){
-                    showExam(examList);
-                }
+
+                showExam(biz.getExam());
             }else{
                 layoutLoading.setEnabled(true);
                 dialog.setVisibility(View.GONE);
@@ -114,8 +112,7 @@ public class ExamActivity extends AppCompatActivity {
 
     }
 
-    private void showExam(List<Question> examList) {
-        Question exam = examList.get(0);
+    private void showExam(Question exam) {
         if (exam!=null){
             tvExamTitle.setText(exam.getQuestion());
             tvOp1.setText(exam.getItem1());
@@ -141,6 +138,14 @@ public class ExamActivity extends AppCompatActivity {
         if (mLoadQuestionBroadcast!=null){
             unregisterReceiver(mLoadQuestionBroadcast);
         }
+    }
+
+    public void preExam(View view) {
+        showExam(biz.preQuestion());
+    }
+
+    public void nextExam(View view) {
+        showExam(biz.nextQuestion());
     }
 
     class LoadExamBroadcast extends BroadcastReceiver{

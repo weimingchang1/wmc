@@ -1,12 +1,15 @@
 package com.example.wmc.jkbd.biz;
 
+import com.example.wmc.jkbd.bean.Question;
+
 /**
  * Created by wmc on 2017/7/2.
  */
 
 public interface IExamBiz {
     void beginExam();
-    void nextQuestion();
-    void preQuestion();
+    Question getExam();
+    Question nextQuestion();
+    Question preQuestion();
     void commitExam();
 }
