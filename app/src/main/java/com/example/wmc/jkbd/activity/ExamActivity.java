@@ -93,7 +93,7 @@ public class ExamActivity extends AppCompatActivity {
                     showExam(examList);
                 }
             }else{
-
+                tvLoad.setText("下载失败，点击重新下载");
             }
         }
 
