@@ -51,10 +51,8 @@ public class Examination {
 
     @Override
     public String toString() {
-        return "Examination{" +
-                "考试科目：" + subjectTitle + "\n" +
-                "考题数量" + limitTime +"\n"+
-                "考试时间" + questionCount +
-                "分钟";
+        return "考试科目：" + subjectTitle + "\n" +
+                "考题数量：" + limitTime +"\n"+
+                "考试时间：" + questionCount + "分钟";
     }
 }
