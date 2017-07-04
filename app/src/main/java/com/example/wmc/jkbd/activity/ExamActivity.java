@@ -86,7 +86,7 @@ public class ExamActivity extends AppCompatActivity {
 
 
     private void initView() {
-        layoutLoading= (LinearLayout) findViewById(R.id.layout_loding);
+        layoutLoading= (LinearLayout) findViewById(R.id.layout_loading);
         layout03 = (LinearLayout) findViewById(R.id.layout_03);
         layout04 = (LinearLayout) findViewById(R.id.layout_04);
         dialog= (ProgressBar) findViewById(R.id.load_dialog);
@@ -156,7 +156,7 @@ public class ExamActivity extends AppCompatActivity {
                 Examination examInfo = ExamApplication.getInstance().getExamInfo();
                 if(examInfo!=null){
                     showData(examInfo);
-                    initTime(examInfo);
+                    initTimer(examInfo);
                 }
                 initGallery();
                 showExam(biz.getExam());
@@ -173,7 +173,7 @@ public class ExamActivity extends AppCompatActivity {
         mGallery.setAdapter(mAdapter);
     }
 
-    private void initTime(Examination examInfo) {
+    private void initTimer(Examination examInfo) {
         int sumTime=examInfo.getLimitTime()*60*1000;
         final long overTime= sumTime+System.currentTimeMillis();
         final Timer timer=new Timer();

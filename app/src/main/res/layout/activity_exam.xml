@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/main">
     <LinearLayout
-        android:id="@+id/layout_loding"
+        android:id="@+id/layout_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -47,7 +47,7 @@
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="剩余时间：9分59秒"
         android:textColor="#000"
         android:gravity="center_horizontal"/>
