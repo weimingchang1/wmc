@@ -121,6 +121,7 @@ public class Question {
                 ", item4='" + item4 + '\'' +
                 ", explains='" + explains + '\'' +
                 ", url='" + url + '\'' +
+                ", userAnswer='" + userAnswer + '\'' +
                 '}';
     }
 }

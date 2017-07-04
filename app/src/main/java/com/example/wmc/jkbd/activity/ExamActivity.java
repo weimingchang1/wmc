@@ -174,20 +174,15 @@ public class ExamActivity extends AppCompatActivity {
     }
 
     private void initTime(Examination examInfo) {
-        //int sumTime=examInfo.getLimitTime()*60*1000;
-        int sumTime=60*1000;
-        //Log.e("time","sumTime"+sumTime);
+        int sumTime=examInfo.getLimitTime()*60*1000;
         final long overTime= sumTime+System.currentTimeMillis();
-        //Log.e("time","overTime"+overTime);
         final Timer timer=new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 long l = overTime - System.currentTimeMillis();
-                //Log.e("time","l"+l);
                 final long min= l/1000/60;
                 final long sec= l/1000%60;
-                //Log.e("time","min"+min+",sec="+sec);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -252,7 +247,7 @@ public class ExamActivity extends AppCompatActivity {
     private void saveUserAnswer(){
         for (int i=0;i<cbs.length;i++) {
             if(cbs[i].isChecked()){
-                biz.getExam().setAnswer(String.valueOf(i+1));
+                biz.getExam().setUserAnswer(String.valueOf(i+1));
                 return;
             }
         }
