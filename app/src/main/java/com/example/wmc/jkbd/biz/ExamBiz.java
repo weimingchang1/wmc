@@ -30,7 +30,7 @@ public class ExamBiz implements IExamBiz{
 
     @Override
     public Question getExam() {
-        examList = ExamApplication.getInstance().getmExamList();
+        examList = ExamApplication.getInstance().getExamList();
         if(examList!=null){
             return examList.get(examIndex);
         }else {

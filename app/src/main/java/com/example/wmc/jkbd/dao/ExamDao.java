@@ -27,7 +27,7 @@ public class ExamDao implements IExamDao{
                     @Override
                     public void onSuccess(Examination result) {
                         Log.e("main","result="+result);
-                        ExamApplication.getInstance().setmExamInfo(result);
+                        ExamApplication.getInstance().setExamInfo(result);
                         ExamApplication.getInstance()
                                 .sendBroadcast(new Intent(ExamApplication.LOAD_EXAM_INFO)
                                 .putExtra(ExamApplication.LOAD_DATA_SUCCESS,true));
@@ -58,7 +58,7 @@ public class ExamDao implements IExamDao{
                         if (result!=null && result.getError_code()==0){
                             List<Question> list = result.getResult();
                             if(list!=null && list.size()>0){
-                                ExamApplication.getInstance().setmExamList(list);
+                                ExamApplication.getInstance().setExamList(list);
                                 success=true;
                             }
                         }

@@ -37,19 +37,21 @@ public class ExamApplication extends Application{
 
 
 
-    public Examination getmExamInfo() {
+    public Examination getExamInfo() {
         return mExamInfo;
     }
 
-    public void setmExamInfo(Examination mExamInfo) {
+    public void setExamInfo(Examination mExamInfo) {
         this.mExamInfo = mExamInfo;
     }
 
-    public List<Question> getmExamList() {
+    public List<Question> getExamList() {
         return mExamList;
     }
 
-    public void setmExamList(List<Question> mExamList) {
+    public void setExamList(List<Question> mExamList) {
         this.mExamList = mExamList;
     }
+
+
 }
