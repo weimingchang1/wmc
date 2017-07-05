@@ -244,7 +244,15 @@ public class ExamActivity extends AppCompatActivity {
             if(userAnswer!=null && !userAnswer.equals("")){
                 int userCB=Integer.parseInt(userAnswer)-1;
                 cbs[userCB].setChecked(true);
+                setOptions(true);
+            } else {
+                setOptions(false);
             }
+        }
+    }
+    private void setOptions(boolean hasAnswer) {
+        for (CheckBox cb : cbs) {
+            cb.setEnabled(!hasAnswer);
         }
     }
 
@@ -310,6 +318,7 @@ public class ExamActivity extends AppCompatActivity {
                 });
         builder.create().show();
     }
+
 
     class LoadExamBroadcast extends BroadcastReceiver{
 
