@@ -9,6 +9,7 @@ import com.example.wmc.jkbd.bean.Question;
 public interface IExamBiz {
     void beginExam();
     Question getExam();
+    Question getExam(int index);
     Question nextQuestion();
     Question preQuestion();
     int commitExam();
