@@ -204,7 +204,7 @@ public class ExamActivity extends AppCompatActivity {
         mGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.e("gallery", "gallery item position" + position);
+                Log.e("gallery", "gallery item position=" + position);
                 saveUserAnswer();
                 showExam(biz.getExam(position));
             }
